@@ -8,9 +8,5 @@ html {
   font-family: 'Open Sans', sans-serif;
   background-image: url('img/background.jpeg');
   color: white;
-}
-
-.container {
-  max-width: 26rem;
-  margin: auto;
+  min-height: 100vh;
 }

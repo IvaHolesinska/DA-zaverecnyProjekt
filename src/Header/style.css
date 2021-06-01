@@ -1,23 +1,20 @@
 header {
   display: flex;
-  align-items: center;
-  margin-top: 2rem;
-  width: 530px;
   justify-content: center;
 }
 
 .logo {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  width: 8rem;
-  height: 8rem;
+  top: 20px;
+  left: 25px;
+  width: 7rem;
+  height: 7rem;
   background-image: url('img/logo.svg');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-h1 {
+.title {
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }

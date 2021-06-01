@@ -1,0 +1,23 @@
+.instruction--list {
+  width: 550px;
+  height: 400px;
+  margin: 50px auto;
+  background-color: hsla(231, 40%, 35%, 0.344);
+  border-radius: 20px;
+  padding: 5px 5px;
+  padding-bottom: 10px;
+  line-height: 3rem;
+}
+
+.instruction--list h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.form--input {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 5px;
+  margin-top: 80px;
+}

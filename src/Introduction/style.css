@@ -1,3 +1,8 @@
+.container {
+  margin: auto;
+  width: 530px;
+}
+
 .intro {
   display: flex;
   flex-wrap: wrap;
@@ -5,7 +10,7 @@
 }
 
 .intro--text {
-  background-color: hsla(230, 40%, 35%, 0.344);
+  background-color: hsla(231, 40%, 35%, 0.344);
   border-radius: 5px;
   text-align: center;
   padding: 6px 8px;

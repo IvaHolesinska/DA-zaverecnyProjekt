@@ -6,7 +6,7 @@ export const Header = () => {
     <>
       <header>
         <div className="logo"></div>
-        <h1>Cesta domů</h1>
+        <h1 className="title">Cesta domů</h1>
       </header>
     </>
   );
