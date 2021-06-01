@@ -1,0 +1,19 @@
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  width: 530px;
+}
+
+.intro--text {
+  background-color: hsla(230, 40%, 35%, 0.344);
+  border-radius: 5px;
+  text-align: center;
+  padding: 6px 8px;
+}
+.intro--btn {
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+  background-color: hsla(0, 7%, 97%, 0.679);
+}

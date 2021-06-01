@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  width: 530px;
+  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 8rem;
+  height: 8rem;
+  background-image: url('img/logo.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
