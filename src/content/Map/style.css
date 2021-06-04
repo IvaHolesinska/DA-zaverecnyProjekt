@@ -1,0 +1,20 @@
+.map-selected {
+  fill: #bbb934;
+}
+
+.map-unselected {
+  fill: #aa9069;
+}
+
+.map-selected:hover,
+.map-unselected:hover {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  margin-top: 10px;
+}
