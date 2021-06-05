@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import '../Map/style.css';
 
-export const Map = () => {
+export const Map = ({ onMove }) => {
   const [selected, onSelect] = useState(null);
 
   const allowDrop = (ev) => {
@@ -21,8 +21,8 @@ export const Map = () => {
         <svg
           className="map-img"
           xmlns="http://www.w3.org/2000/svg"
-          width="900"
-          height="600"
+          width="700"
+          height="400"
           viewBox="0 0 672 315"
           id="svg5249"
         >
@@ -39,6 +39,7 @@ export const Map = () => {
             className={selected === 'AF' ? 'map-selected' : 'map-unselected'}
             onClick={() => {
               onSelect('AF');
+              onMove('AF');
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -60,6 +61,7 @@ export const Map = () => {
             className={selected === 'SA' ? 'map-selected' : 'map-unselected'}
             onClick={() => {
               onSelect('SA');
+              onMove('SA');
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -82,6 +84,7 @@ export const Map = () => {
             className={selected === 'EU' ? 'map-selected' : 'map-unselected'}
             onClick={() => {
               onSelect('EU');
+              onMove('EU');
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -132,6 +135,7 @@ export const Map = () => {
             className={selected === 'AS' ? 'map-selected' : 'map-unselected'}
             onClick={() => {
               onSelect('AS');
+              onMove('AS');
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -238,6 +242,7 @@ export const Map = () => {
             className={selected === 'NA' ? 'map-selected' : 'map-unselected'}
             onClick={() => {
               onSelect('NA');
+              onMove('NA');
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -316,6 +321,7 @@ export const Map = () => {
             className={selected === 'OC' ? 'map-selected' : 'map-unselected'}
             onClick={() => {
               onSelect('OC');
+              onMove('OC');
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
