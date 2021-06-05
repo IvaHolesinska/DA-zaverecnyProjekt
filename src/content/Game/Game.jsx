@@ -11,8 +11,8 @@ export const Game = () => {
 
   const handleMove = (item) => {
     setMove(item);
-    console.log(item);
-    console.log(closeModal);
+    // console.log(item);
+    // console.log(closeModal);
   };
 
   const handleClick = (text) => {
@@ -51,7 +51,10 @@ export const Game = () => {
       {result === null || closeModal ? undefined : result ? (
         <Modal onCloseModal={handleClick} text={animals[index].text} />
       ) : (
-        <Modal onCloseModal={handleClick} text="Chybně" />
+        <Modal
+          onCloseModal={handleClick}
+          text="Bohužel. Tady můj domov není."
+        />
       )}
     </>
   );

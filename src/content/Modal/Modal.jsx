@@ -5,7 +5,7 @@ export const Modal = ({ text, onCloseModal }) => {
   return (
     <>
       <div className="modal--container">
-        {text}
+        <div className="modal--text">{text}</div>
         <button
           className="modal--btn"
           onClick={() => {
