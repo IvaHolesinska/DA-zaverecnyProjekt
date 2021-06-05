@@ -12,6 +12,7 @@ export const animals = [
     area: 'AF',
     text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši. Žijeme ve skupině, kterou vede nejzkušenejší slonice',
     level: '1',
+    visible: false,
   },
   {
     img: panda,
@@ -19,6 +20,7 @@ export const animals = [
     area: 'AS',
     text: 'Moje zbarvení je nápadně černobílé a živím se převážně bambusovými výhonky',
     level: '1',
+    visible: false,
   },
   {
     img: kangaroo,
@@ -26,6 +28,7 @@ export const animals = [
     area: 'OC',
     text: 'Můj ocas je tak silný, že mi slouží jako opora těla.',
     level: '1',
+    visible: false,
   },
   {
     img: europeanBeaver,
@@ -33,6 +36,7 @@ export const animals = [
     area: 'EU',
     text: 'Pomocí svých mohutných zubů buduji na řekách hráze.',
     level: '1',
+    visible: false,
   },
 ];
 

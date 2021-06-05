@@ -1,1 +1,8 @@
-
+.modal--container {
+  background-color: gray;
+  width: 600px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

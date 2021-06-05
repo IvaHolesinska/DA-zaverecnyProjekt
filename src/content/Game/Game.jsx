@@ -7,9 +7,17 @@ export const Game = () => {
   const [move, setMove] = useState(null);
   const [index, setIndex] = useState(null);
   const [result, setResult] = useState(null);
+  const [closeModal, setCloseModal] = useState(null);
 
   const handleMove = (item) => {
     setMove(item);
+    console.log(item);
+    console.log(closeModal);
+  };
+
+  const handleClick = (text) => {
+    setCloseModal(true);
+    setIndex(round());
   };
 
   const round = () => {
@@ -24,6 +32,7 @@ export const Game = () => {
   useEffect(() => {
     if (index !== null) {
       setResult(move === animals[index].area);
+      setCloseModal(false);
     }
   }, [move]);
 
@@ -39,7 +48,11 @@ export const Game = () => {
           name={animals[index].name}
         />
       )}{' '}
-      {result ? <Modal text={animals[index].text} /> : <Modal text="Chybně" />}
+      {result === null || closeModal ? undefined : result ? (
+        <Modal onCloseModal={handleClick} text={animals[index].text} />
+      ) : (
+        <Modal onCloseModal={handleClick} text="Chybně" />
+      )}
     </>
   );
 };
