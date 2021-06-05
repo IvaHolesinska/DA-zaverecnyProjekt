@@ -9,12 +9,11 @@
 .map-selected:hover,
 .map-unselected:hover {
   cursor: pointer;
+  fill: #bbb934;
 }
 
-.row {
+.map-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 30px;
-  margin-top: 10px;
 }

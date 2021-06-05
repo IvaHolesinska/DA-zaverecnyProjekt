@@ -9,7 +9,7 @@ export const animals = [
   {
     img: africanElephant,
     name: 'slon africký',
-    area: 'af',
+    area: 'AF',
     text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši. Žijeme ve skupině, kterou vede nejzkušenejší slonice',
     level: '1',
   },
@@ -36,11 +36,20 @@ export const animals = [
   // },
 ];
 
-export const Animals = ({ img, name }) => {
+const drag = (ev) => {
+  console.log(ev.target);
+};
+
+export const Animal = ({ img, name }) => {
   return (
     <>
       <div className="animal--gallery">
-        <img className="animal--img" src={img} />
+        <img
+          className="animal--img"
+          src={img}
+          draggable={true}
+          onDragStart={(event) => drag(event)}
+        />
         <p className="animal--name">{name}</p>
       </div>
     </>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 export const Instruction = () => {
   return (
@@ -16,7 +17,9 @@ export const Instruction = () => {
             <label className="input">
               Zadej své jméno: <input />{' '}
             </label>
-            <button>Pokračovat</button>
+            <Link to="/hra">
+              <button>Pokračovat</button>
+            </Link>
           </form>
         </div>
       </div>
