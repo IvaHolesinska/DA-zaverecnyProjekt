@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Map } from '../Map/Map.jsx';
 import { Animal, animals } from '../Animal/Animal';
+import { Modal } from '../Modal/Modal.jsx';
 
 export const Game = () => {
   const [move, setMove] = useState(null);
   const [index, setIndex] = useState(null);
+  const [result, setResult] = useState(null);
 
   const handleMove = (item) => {
     setMove(item);
@@ -21,9 +23,7 @@ export const Game = () => {
 
   useEffect(() => {
     if (index !== null) {
-      move === animals[index].area
-        ? alert(animals[index].text)
-        : console.log('zkus to znovu');
+      setResult(move === animals[index].area);
     }
   }, [move]);
 
@@ -38,7 +38,8 @@ export const Game = () => {
           img={animals[index].img}
           name={animals[index].name}
         />
-      )}
+      )}{' '}
+      {result ? <Modal text={animals[index].text} /> : <Modal text="Chybně" />}
     </>
   );
 };
