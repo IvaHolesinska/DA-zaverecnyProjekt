@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
+import success from '../../audio/success.mp3';
 
 export const Modal = ({ text, onCloseModal }) => {
+  useEffect(() => {
+    const success = document.getElementById('success')[0];
+    success.play();
+  });
+
   return (
     <>
       <div className="modal--container">
@@ -15,6 +21,9 @@ export const Modal = ({ text, onCloseModal }) => {
           {' '}
           X{' '}
         </button>
+        {/* <audio id="success">
+          <source src={success}></source>
+        </audio> */}
       </div>
     </>
   );
