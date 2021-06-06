@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import '../Map/style.css';
 
-export const Map = ({ onMove }) => {
+export const Map = ({ onMove, reloadMap }) => {
   const [selected, onSelect] = useState(null);
 
   const allowDrop = (ev) => {
@@ -36,10 +36,14 @@ export const Map = ({ onMove }) => {
           </defs>
           <g
             id="AF"
-            className={selected === 'AF' ? 'map-selected' : 'map-unselected'}
+            className={
+              selected === 'AF' && !reloadMap
+                ? 'map-selected'
+                : 'map-unselected'
+            }
             onClick={() => {
               onSelect('AF');
-              onMove('AF');
+              onMove('AF', false);
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -58,10 +62,14 @@ export const Map = ({ onMove }) => {
           </g>
           <g
             id="SA"
-            className={selected === 'SA' ? 'map-selected' : 'map-unselected'}
+            className={
+              selected === 'SA' && !reloadMap
+                ? 'map-selected'
+                : 'map-unselected'
+            }
             onClick={() => {
               onSelect('SA');
-              onMove('SA');
+              onMove('SA', false);
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -81,10 +89,14 @@ export const Map = ({ onMove }) => {
           </g>
           <g
             id="EU"
-            className={selected === 'EU' ? 'map-selected' : 'map-unselected'}
+            className={
+              selected === 'EU' && !reloadMap
+                ? 'map-selected'
+                : 'map-unselected'
+            }
             onClick={() => {
               onSelect('EU');
-              onMove('EU');
+              onMove('EU', false);
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -132,10 +144,14 @@ export const Map = ({ onMove }) => {
           </g>
           <g
             id="AS"
-            className={selected === 'AS' ? 'map-selected' : 'map-unselected'}
+            className={
+              selected === 'AS' && !reloadMap
+                ? 'map-selected'
+                : 'map-unselected'
+            }
             onClick={() => {
               onSelect('AS');
-              onMove('AS');
+              onMove('AS', false);
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -239,10 +255,14 @@ export const Map = ({ onMove }) => {
           </g>
           <g
             id="NA"
-            className={selected === 'NA' ? 'map-selected' : 'map-unselected'}
+            className={
+              selected === 'NA' && !reloadMap
+                ? 'map-selected'
+                : 'map-unselected'
+            }
             onClick={() => {
               onSelect('NA');
-              onMove('NA');
+              onMove('NA', false);
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
@@ -318,10 +338,14 @@ export const Map = ({ onMove }) => {
           </g>
           <g
             id="OC"
-            className={selected === 'OC' ? 'map-selected' : 'map-unselected'}
+            className={
+              selected === 'OC' && !reloadMap
+                ? 'map-selected'
+                : 'map-unselected'
+            }
             onClick={() => {
               onSelect('OC');
-              onMove('OC');
+              onMove('OC', false);
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
