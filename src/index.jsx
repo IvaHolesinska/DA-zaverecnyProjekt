@@ -17,9 +17,14 @@ import { Results } from './content/Results/Results';
 
 const App = () => {
   const [moveToResult, setMoveToResult] = useState(null);
+  const [playerName, setPlayerName] = useState('');
 
   const handleMoveToResult = (props) => {
     setMoveToResult(props);
+  };
+
+  const handleName = (name) => {
+    setPlayerName(name);
   };
 
   return (
@@ -30,10 +35,10 @@ const App = () => {
           <Introduction />
         </Route>
         <Route path="/instrukce" exact>
-          <Instruction />
+          <Instruction onPlayerName={handleName} />
         </Route>
         <Route path="/results" exact>
-          <Results />
+          <Results name={playerName} />
         </Route>
         <Route path="/hra" exact>
           {moveToResult === null || moveToResult.length > 0 ? (

@@ -105,15 +105,13 @@ export const Game = ({ onMoveToResult }) => {
       availableAnimals[index].visible = false;
       setAvailableAnimals(animals.filter((animal) => animal.visible === true));
     }
-    console.log(index, animals);
   }, [result]);
 
   useEffect(() => {
     onMoveToResult(availableAnimals);
-    console.log(index);
   });
 
-  console.log('return', index, animals[index], animals);
+  // console.log('return', index, animals[index], animals);
 
   return (
     <>

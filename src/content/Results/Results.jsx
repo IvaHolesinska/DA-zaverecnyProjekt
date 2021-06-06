@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const Results = () => {
+export const Results = ({ name }) => {
   return (
     <>
       <h1>Výsledek</h1>
-      <p>Zachránce:</p>
+      <p> Zachránce:{name}</p>
     </>
   );
 };
