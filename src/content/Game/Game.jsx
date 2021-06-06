@@ -9,14 +9,13 @@ import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
 import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
 import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
 
-export const Game = () => {
+export const Game = ({ onMoveToResult }) => {
   const [move, setMove] = useState(null);
   const [index, setIndex] = useState(null);
   const [result, setResult] = useState(null);
   const [closeModal, setCloseModal] = useState(null);
   const [reloadMap, setReloadMap] = useState(true);
   const [counter, setCounter] = useState(0);
-  const [availableAnimals, setAvailableAnimals] = useState(animals);
   const [animals, setAnimals] = useState([
     {
       img: africanElephant,
@@ -67,6 +66,7 @@ export const Game = () => {
       visible: true,
     },
   ]);
+  const [availableAnimals, setAvailableAnimals] = useState(animals);
 
   const handleMove = (item, reload) => {
     setMove(item);
@@ -79,18 +79,18 @@ export const Game = () => {
   const handleClick = (text) => {
     setCloseModal(true);
     setAnimals(availableAnimals);
-    setIndex(round());
+    setIndex(round(availableAnimals.length));
     setReloadMap(true);
     setResult(false);
   };
 
-  const round = () => {
-    let randomNumber = Math.floor(Math.random() * animals.length);
+  const round = (animalsCount) => {
+    let randomNumber = Math.floor(Math.random() * animalsCount);
     return randomNumber;
   };
 
   useEffect(() => {
-    setIndex(round());
+    setIndex(round(animals.length));
   }, []);
 
   useEffect(() => {
@@ -105,8 +105,15 @@ export const Game = () => {
       availableAnimals[index].visible = false;
       setAvailableAnimals(animals.filter((animal) => animal.visible === true));
     }
-    console.log(animals);
+    console.log(index, animals);
   }, [result]);
+
+  useEffect(() => {
+    onMoveToResult(availableAnimals);
+    console.log(index);
+  });
+
+  console.log('return', index, animals[index], animals);
 
   return (
     <>
