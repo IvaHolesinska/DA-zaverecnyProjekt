@@ -13,6 +13,7 @@ export const Map = ({ onMove, reloadMap }) => {
     ev.preventDefault();
     console.log(ev.target.parentElement.id);
     onSelect(ev.target.parentElement.id);
+    onMove(ev.target.parentElement.id, false);
   };
 
   return (
@@ -47,9 +48,6 @@ export const Map = ({ onMove, reloadMap }) => {
             }}
             onDrop={(event) => drop(event)}
             onDragOver={(event) => allowDrop(event)}
-            onDragEnter={(event) => {
-              event.preventDefault();
-            }}
           >
             <path
               id="path4307"

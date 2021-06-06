@@ -67,13 +67,12 @@ export const Game = ({ onMoveToResult }) => {
     },
   ]);
   const [availableAnimals, setAvailableAnimals] = useState(animals);
+  const [chosenAnimals, setChosenAnimals] = useState([]);
 
   const handleMove = (item, reload) => {
     setMove(item);
     setReloadMap(reload);
     setCounter(counter + 1);
-    // console.log(item);
-    // console.log(closeModal);
   };
 
   const handleClick = (text) => {
@@ -89,9 +88,33 @@ export const Game = ({ onMoveToResult }) => {
     return randomNumber;
   };
 
+  const shuffle = (array) => {
+    var currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  };
+
   useEffect(() => {
+    const newArray = shuffle(animals).slice(0, 3);
+    setChosenAnimals(newArray);
     setIndex(round(animals.length));
   }, []);
+
+  console.log(chosenAnimals);
 
   useEffect(() => {
     if (index !== null) {
@@ -103,7 +126,9 @@ export const Game = ({ onMoveToResult }) => {
   useEffect(() => {
     if (result === true) {
       availableAnimals[index].visible = false;
-      setAvailableAnimals(animals.filter((animal) => animal.visible === true));
+      setAvailableAnimals(
+        chosenAnimals.filter((animal) => animal.visible === true),
+      );
     }
   }, [result]);
 
