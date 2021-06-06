@@ -30,9 +30,9 @@ export const Instruction = ({ onPlayerName }) => {
                 onChange={(event) => setName(event.target.value)}
               />{' '}
             </label>
-            <Link to="/hra">
-              <button>Pokračovat</button>
-            </Link>
+            {/* <Link to="/hra"> */}
+            <button type="submit">Pokračovat</button>
+            {/* </Link> */}
           </form>
         </div>
       </div>

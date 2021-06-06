@@ -35,16 +35,21 @@ const App = () => {
           <Introduction />
         </Route>
         <Route path="/instrukce" exact>
-          <Instruction onPlayerName={handleName} />
+          {' '}
+          {playerName === '' ? (
+            <Instruction onPlayerName={handleName} />
+          ) : (
+            <Redirect to="/hra" />
+          )}
         </Route>
-        <Route path="/results" exact>
+        <Route path="/vysledek" exact>
           <Results name={playerName} />
         </Route>
         <Route path="/hra" exact>
           {moveToResult === null || moveToResult.length > 0 ? (
             <Game onMoveToResult={handleMoveToResult} />
           ) : (
-            <Redirect to="/results" />
+            <Redirect to="/vysledek" />
           )}
         </Route>
       </Switch>
