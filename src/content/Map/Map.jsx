@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import '../Map/style.css';
 
 export const Map = ({ onMove, reloadMap }) => {

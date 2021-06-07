@@ -11,6 +11,7 @@ import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
 
 import useSound from 'use-sound';
 import success from '../../audio/success.mp3';
+import fail from '../../audio/fail.mp3';
 
 export const Game = ({ onMoveToResult }) => {
   const [move, setMove] = useState(null);
@@ -84,6 +85,9 @@ export const Game = ({ onMoveToResult }) => {
     setIndex(round(availableAnimals.length));
     setReloadMap(true);
     setResult(false);
+    if (availableAnimals.length === 0) {
+      onMoveToResult(availableAnimals);
+    }
   };
 
   const round = (animalsCount) => {
@@ -119,10 +123,13 @@ export const Game = ({ onMoveToResult }) => {
 
   console.log(chosenAnimals);
 
+  const [playSuccess] = useSound(success);
+  const [playFail] = useSound(fail);
+
   useEffect(() => {
     if (index !== null) {
-      setResult(move === animals[index].area);
-      // useSound(move === animals[index].area ? success : fail);
+      setResult(move === animals[index].area),
+        move === animals[index].area ? playSuccess() : playFail();
       setCloseModal(false);
     }
   }, [counter]);
@@ -135,12 +142,6 @@ export const Game = ({ onMoveToResult }) => {
       );
     }
   }, [result]);
-
-  useEffect(() => {
-    onMoveToResult(availableAnimals);
-  });
-
-  // console.log('return', index, animals[index], animals);
 
   return (
     <>
