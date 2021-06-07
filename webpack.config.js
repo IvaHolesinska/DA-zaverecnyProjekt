@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+var SRC = path.resolve(__dirname, 'src/audio');
 
 module.exports = {
   mode: 'development',
@@ -34,6 +35,11 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.mp3$/,
+        include: SRC,
+        loader: 'file-loader',
+      },
+      {
         test: /\.(png|jpe?g|svg)$/,
         use: [
           {
@@ -44,13 +50,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.mp3$/,
-        loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
       },
     ],
   },

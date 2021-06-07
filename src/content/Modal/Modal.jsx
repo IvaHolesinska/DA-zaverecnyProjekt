@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
-import success from '../../audio/success.mp3';
+
+// import useSound from 'use-sound';
+// import success from '../../audio/success.mp3';
 
 export const Modal = ({ text, onCloseModal }) => {
-  useEffect(() => {
-    const success = document.getElementById('success')[0];
-    success.play();
-  });
+  // const [play] = useSound(success);
+
+  // useEffect(() => {});
 
   return (
     <>
+      {/* <button onMouseEnter={play}> */}
       <div className="modal--container">
         <div className="modal--text">{text}</div>
         <button
@@ -22,9 +24,10 @@ export const Modal = ({ text, onCloseModal }) => {
           X{' '}
         </button>
         {/* <audio id="success">
-          <source src={success}></source>
+          <source src={play}></source>
         </audio> */}
       </div>
+      {/* </button> */}
     </>
   );
 };

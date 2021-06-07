@@ -9,6 +9,9 @@ import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
 import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
 import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
 
+import useSound from 'use-sound';
+import success from '../../audio/success.mp3';
+
 export const Game = ({ onMoveToResult }) => {
   const [move, setMove] = useState(null);
   const [index, setIndex] = useState(null);
@@ -119,6 +122,7 @@ export const Game = ({ onMoveToResult }) => {
   useEffect(() => {
     if (index !== null) {
       setResult(move === animals[index].area);
+      // useSound(move === animals[index].area ? success : fail);
       setCloseModal(false);
     }
   }, [counter]);

@@ -8,8 +8,8 @@ export const Instruction = ({ onPlayerName }) => {
   return (
     <>
       <div className="instruction--list">
+        <h2>Instrukce</h2>
         <ul>
-          <h2>Instrukce</h2>
           <li>Podívej se na zvíře</li>
           <li>Prohlédni si mapu a rozmysli si, kde je jeho pravý domov</li>
           <li>Klikni na zvíře a umísti jej na správný kontinent</li>
