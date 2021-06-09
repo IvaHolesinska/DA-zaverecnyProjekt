@@ -22,7 +22,7 @@ export const Map = ({ onMove, reloadMap }) => {
           className="map-img"
           xmlns="http://www.w3.org/2000/svg"
           width="700"
-          height="400"
+          height="320"
           viewBox="0 0 672 315"
           id="svg5249"
         >

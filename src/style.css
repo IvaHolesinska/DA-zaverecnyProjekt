@@ -9,4 +9,5 @@ html {
   background-image: url('img/background.jpeg');
   color: white;
   min-height: 100vh;
+  min-width: 100%;
 }

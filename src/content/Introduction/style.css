@@ -1,24 +1,59 @@
 .container {
-  margin: auto;
-  width: 530px;
+  margin: 0 auto;
+  /* width: 530px; */
 }
 
 .intro {
   display: flex;
   flex-wrap: wrap;
-  width: 530px;
+
+  /* width: 480px; */
 }
 
 .intro--text {
   background-color: hsla(231, 40%, 35%, 0.344);
   border-radius: 5px;
   text-align: center;
-  padding: 6px 8px;
+
+  /* width: 90%; */
 }
 .intro--btn {
-  margin: 10px auto;
   padding: 5px;
   border-radius: 5px;
   color: black;
   background-color: hsla(0, 7%, 97%, 0.679);
+}
+
+.intro--bt {
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+}
+
+@media screen {
+  .container {
+    width: 90%;
+  }
+  .intro--text {
+    padding: 2px 8px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    padding-top: 30px;
+    width: 450px;
+  }
+  .intro--text {
+    padding: 6px 8px;
+    padding-bottom: 15px;
+    margin: 15px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    width: 500px;
+  }
 }

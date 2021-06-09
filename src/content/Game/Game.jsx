@@ -135,15 +135,21 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
     }
   }, [counter]);
 
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+
   useEffect(() => {
     if (result === true) {
       availableAnimals[index].visible = false;
       setAvailableAnimals(
         chosenAnimals.filter((animal) => animal.visible === true),
-        onNumberOfAnimals(chosenAnimals.length),
       );
+      setCorrectAnswers(correctAnswers + 1);
     }
   }, [result]);
+
+  useEffect(() => {
+    onNumberOfAnimals(correctAnswers);
+  });
 
   return (
     <>

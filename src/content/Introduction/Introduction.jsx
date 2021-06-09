@@ -24,9 +24,11 @@ export const Introduction = () => {
             jsme cestu a náš kompas se rozbil. Jediný, kdo nám teď může pomoct,
             jsi ty. Ukážeš nám prosím cestu domů?
           </p>
-          <Link to="/instrukce">
-            <button className="intro--btn">Pokračovat</button>
-          </Link>
+          <div className="intro--bt">
+            <Link to="/instrukce">
+              <button className="intro--btn">Pokračovat</button>
+            </Link>
+          </div>
         </div>
       </div>
     </>

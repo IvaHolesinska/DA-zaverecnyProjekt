@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
+import './style.css';
+import img from './img/tabule.svg';
 
 export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
   const [backToGame, setBackToGame] = useState(false);
 
+  const handle = () => {
+    setBackToGame(true);
+    onBackToGame(backToGame);
+    if (setBackToGame === true) {
+      setBackToGame(false);
+    }
+  };
+
   return (
     <>
-      <div>
+      <div className="signboard">
         <h1>Děkujeme!</h1>
+        {/* <img className="signboard--img" src={img}></img> */}
         <p> Zachránce:{name}</p>
         <p>
           {' '}
@@ -15,8 +26,9 @@ export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
 
         <button
           onClick={() => {
-            setBackToGame(true);
-            onBackToGame(backToGame);
+            // setBackToGame(true);
+            // onBackToGame(backToGame);
+            handle();
           }}
         >
           Hrát znovu

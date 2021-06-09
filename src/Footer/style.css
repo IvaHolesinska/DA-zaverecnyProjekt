@@ -4,3 +4,15 @@ footer {
   right: 20px;
   font-size: 0.6rem;
 }
+
+@media screen {
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  footer {
+    display: inline;
+  }
+}

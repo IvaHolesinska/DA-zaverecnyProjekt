@@ -58,6 +58,18 @@ const App = () => {
           )}
         </Route>
 
+        <Route path="/hra" exact>
+          {moveToResult === null || moveToResult.length > 0 ? (
+            <Game
+              onMoveToResult={handleMoveToResult}
+              onCounter={handleCount}
+              onNumberOfAnimals={handleNumberOfAnimals}
+            />
+          ) : (
+            <Redirect to="/vysledek" />
+          )}
+        </Route>
+
         <Route path="/vysledek" exact>
           {moveBackToGame ? (
             <Redirect to="/hra" />
@@ -68,18 +80,6 @@ const App = () => {
               numberOfAnimals={numberOfAnimals}
               onBackToGame={handleMoveBackToGame}
             />
-          )}
-        </Route>
-
-        <Route path="/hra" exact>
-          {moveToResult === null || moveToResult.length > 0 ? (
-            <Game
-              onMoveToResult={handleMoveToResult}
-              onCounter={handleCount}
-              onNumberOfAnimals={handleNumberOfAnimals}
-            />
-          ) : (
-            <Redirect to="/vysledek" />
           )}
         </Route>
       </Switch>
