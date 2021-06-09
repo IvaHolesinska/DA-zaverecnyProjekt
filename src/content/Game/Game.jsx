@@ -13,7 +13,7 @@ import useSound from 'use-sound';
 import success from '../../audio/success.mp3';
 import fail from '../../audio/fail.mp3';
 
-export const Game = ({ onMoveToResult, onCounter }) => {
+export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   const [move, setMove] = useState(null);
   const [index, setIndex] = useState(null);
   const [result, setResult] = useState(null);
@@ -77,23 +77,24 @@ export const Game = ({ onMoveToResult, onCounter }) => {
     setMove(item);
     setReloadMap(reload);
     setCounter(counter + 1);
-    onCounter(counter + 1);
   };
-  console.log(counter);
 
-  const handleClick = (text) => {
+  const handleClick = () => {
     setCloseModal(true);
     setAnimals(availableAnimals);
     setIndex(round(availableAnimals.length));
     setReloadMap(true);
     setResult(false);
+
     if (availableAnimals.length === 0) {
       onMoveToResult(availableAnimals);
+      onCounter(counter);
     }
   };
 
   const round = (animalsCount) => {
     let randomNumber = Math.floor(Math.random() * animalsCount);
+
     return randomNumber;
   };
 
@@ -104,7 +105,7 @@ export const Game = ({ onMoveToResult, onCounter }) => {
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
       // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
+      randomIndex = Math.ceil(Math.random() * currentIndex);
       currentIndex--;
 
       // And swap it with the current element.
@@ -123,8 +124,6 @@ export const Game = ({ onMoveToResult, onCounter }) => {
     setIndex(round(animals.length));
   }, []);
 
-  console.log(chosenAnimals);
-
   const [playSuccess] = useSound(success);
   const [playFail] = useSound(fail);
 
@@ -141,6 +140,7 @@ export const Game = ({ onMoveToResult, onCounter }) => {
       availableAnimals[index].visible = false;
       setAvailableAnimals(
         chosenAnimals.filter((animal) => animal.visible === true),
+        onNumberOfAnimals(chosenAnimals.length),
       );
     }
   }, [result]);

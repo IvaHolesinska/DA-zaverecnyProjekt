@@ -19,7 +19,7 @@ export const Instruction = ({ onPlayerName }) => {
             onSubmit={(event) => {
               event.preventDefault();
               onPlayerName(name);
-              console.log(name);
+              // console.log(name);
             }}
           >
             <label className="input">

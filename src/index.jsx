@@ -19,6 +19,8 @@ const App = () => {
   const [moveToResult, setMoveToResult] = useState(null);
   const [playerName, setPlayerName] = useState('');
   const [counter, setCounter] = useState(0);
+  const [numberOfAnimals, setNumberOfAnimals] = useState(null);
+  const [moveBackToGame, setMoveBackToGame] = useState(null);
 
   const handleMoveToResult = (props) => {
     setMoveToResult(props);
@@ -30,6 +32,14 @@ const App = () => {
 
   const handleCount = (counter) => {
     setCounter(counter);
+  };
+
+  const handleNumberOfAnimals = (numberOfAnimals) => {
+    setNumberOfAnimals(numberOfAnimals);
+  };
+
+  const handleMoveBackToGame = (backToGame) => {
+    setMoveBackToGame(backToGame);
   };
 
   return (
@@ -47,12 +57,27 @@ const App = () => {
             <Redirect to="/hra" />
           )}
         </Route>
+
         <Route path="/vysledek" exact>
-          <Results name={playerName} counter={counter} />
+          {moveBackToGame ? (
+            <Redirect to="/hra" />
+          ) : (
+            <Results
+              name={playerName}
+              counter={counter}
+              numberOfAnimals={numberOfAnimals}
+              onBackToGame={handleMoveBackToGame}
+            />
+          )}
         </Route>
+
         <Route path="/hra" exact>
           {moveToResult === null || moveToResult.length > 0 ? (
-            <Game onMoveToResult={handleMoveToResult} onCounter={handleCount} />
+            <Game
+              onMoveToResult={handleMoveToResult}
+              onCounter={handleCount}
+              onNumberOfAnimals={handleNumberOfAnimals}
+            />
           ) : (
             <Redirect to="/vysledek" />
           )}

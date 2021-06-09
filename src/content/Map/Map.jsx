@@ -10,7 +10,7 @@ export const Map = ({ onMove, reloadMap }) => {
 
   const drop = (ev) => {
     ev.preventDefault();
-    console.log(ev.target.parentElement.id);
+    // console.log(ev.target.parentElement.id);
     onSelect(ev.target.parentElement.id);
     onMove(ev.target.parentElement.id, false);
   };
