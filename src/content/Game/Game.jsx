@@ -13,7 +13,7 @@ import useSound from 'use-sound';
 import success from '../../audio/success.mp3';
 import fail from '../../audio/fail.mp3';
 
-export const Game = ({ onMoveToResult }) => {
+export const Game = ({ onMoveToResult, onCounter }) => {
   const [move, setMove] = useState(null);
   const [index, setIndex] = useState(null);
   const [result, setResult] = useState(null);
@@ -77,7 +77,9 @@ export const Game = ({ onMoveToResult }) => {
     setMove(item);
     setReloadMap(reload);
     setCounter(counter + 1);
+    onCounter(counter + 1);
   };
+  console.log(counter);
 
   const handleClick = (text) => {
     setCloseModal(true);

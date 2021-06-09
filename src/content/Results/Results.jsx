@@ -1,10 +1,14 @@
 import React from 'react';
 
-export const Results = ({ name }) => {
+export const Results = ({ name, counter }) => {
   return (
     <>
-      <h1>Výsledek</h1>
-      <p> Zachránce:{name}</p>
+      <div>
+        <h1>Děkujeme!</h1>
+        <p> Zachránce:{name}</p>
+        <p>3 zvířátka jsou doma na {counter} pokusů</p>
+        <button type="submit">Hrát znovu</button>
+      </div>
     </>
   );
 };

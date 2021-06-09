@@ -18,6 +18,7 @@ import { Results } from './content/Results/Results';
 const App = () => {
   const [moveToResult, setMoveToResult] = useState(null);
   const [playerName, setPlayerName] = useState('');
+  const [counter, setCounter] = useState(0);
 
   const handleMoveToResult = (props) => {
     setMoveToResult(props);
@@ -25,6 +26,10 @@ const App = () => {
 
   const handleName = (name) => {
     setPlayerName(name);
+  };
+
+  const handleCount = (counter) => {
+    setCounter(counter);
   };
 
   return (
@@ -43,11 +48,11 @@ const App = () => {
           )}
         </Route>
         <Route path="/vysledek" exact>
-          <Results name={playerName} />
+          <Results name={playerName} counter={counter} />
         </Route>
         <Route path="/hra" exact>
           {moveToResult === null || moveToResult.length > 0 ? (
-            <Game onMoveToResult={handleMoveToResult} />
+            <Game onMoveToResult={handleMoveToResult} onCounter={handleCount} />
           ) : (
             <Redirect to="/vysledek" />
           )}
