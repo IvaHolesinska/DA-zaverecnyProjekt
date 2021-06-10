@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
   Redirect,
+  Link,
 } from 'react-router-dom';
 import { Introduction } from './content/Introduction/Introduction';
 import { Instruction } from './content/Instruction/Instruction';
@@ -16,11 +17,11 @@ import './style.css';
 import { Results } from './content/Results/Results';
 
 const App = () => {
-  const [moveToResult, setMoveToResult] = useState(null);
+  const [moveToResult, setMoveToResult] = useState(false);
   const [playerName, setPlayerName] = useState('');
   const [counter, setCounter] = useState(0);
   const [numberOfAnimals, setNumberOfAnimals] = useState(null);
-  const [moveBackToGame, setMoveBackToGame] = useState(null);
+  const [moveBackToGame, setMoveBackToGame] = useState(false);
 
   const handleMoveToResult = (props) => {
     setMoveToResult(props);
@@ -42,6 +43,10 @@ const App = () => {
     setMoveBackToGame(backToGame);
   };
 
+  const handleReset = () => {
+    setMoveToResult(false);
+  };
+
   return (
     <Router>
       <Header />
@@ -50,23 +55,17 @@ const App = () => {
           <Introduction />
         </Route>
         <Route path="/instrukce" exact>
-          {' '}
-          {playerName === '' ? (
-            <Instruction onPlayerName={handleName} />
-          ) : (
-            <Redirect to="/hra" />
-          )}
+          <Instruction onPlayerName={handleName} />
         </Route>
-
         <Route path="/hra" exact>
-          {moveToResult === null || moveToResult.length > 0 ? (
+          {moveToResult ? (
+            <Redirect to="/vysledek" />
+          ) : (
             <Game
               onMoveToResult={handleMoveToResult}
               onCounter={handleCount}
               onNumberOfAnimals={handleNumberOfAnimals}
             />
-          ) : (
-            <Redirect to="/vysledek" />
           )}
         </Route>
 
@@ -78,7 +77,7 @@ const App = () => {
               name={playerName}
               counter={counter}
               numberOfAnimals={numberOfAnimals}
-              onBackToGame={handleMoveBackToGame}
+              onBackToGame={(handleMoveBackToGame, handleReset)}
             />
           )}
         </Route>

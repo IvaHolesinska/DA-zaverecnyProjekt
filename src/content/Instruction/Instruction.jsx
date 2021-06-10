@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 export const Instruction = ({ onPlayerName }) => {
   const [name, setName] = useState('');
@@ -16,10 +17,8 @@ export const Instruction = ({ onPlayerName }) => {
         <div className="form--input">
           <form
             className="form"
-            onSubmit={(event) => {
-              event.preventDefault();
+            onClick={() => {
               onPlayerName(name);
-              // console.log(name);
             }}
           >
             <label className="input">
@@ -29,7 +28,13 @@ export const Instruction = ({ onPlayerName }) => {
                 onChange={(event) => setName(event.target.value)}
               />{' '}
             </label>
-            <button type="submit">Pokračovat</button>
+            {name === '' ? (
+              <button type="submit">Pokračovat</button>
+            ) : (
+              <Link to="/hra">
+                <button type="submit">Pokračovat</button>
+              </Link>
+            )}
           </form>
         </div>
       </div>

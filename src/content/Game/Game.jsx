@@ -72,6 +72,7 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   ]);
   const [availableAnimals, setAvailableAnimals] = useState(animals);
   const [chosenAnimals, setChosenAnimals] = useState([]);
+  const [moveToResult, setMoveToResult] = useState(true);
 
   const handleMove = (item, reload) => {
     setMove(item);
@@ -87,7 +88,8 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
     setResult(false);
 
     if (availableAnimals.length === 0) {
-      onMoveToResult(availableAnimals);
+      // onMoveToResult(availableAnimals);
+      onMoveToResult(moveToResult);
       onCounter(counter);
     }
   };
