@@ -9,6 +9,8 @@ import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
 import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
 import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
 
+import { db } from '../../db';
+
 import useSound from 'use-sound';
 import success from '../../audio/success.mp3';
 import fail from '../../audio/fail.mp3';
@@ -20,56 +22,57 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   const [closeModal, setCloseModal] = useState(null);
   const [reloadMap, setReloadMap] = useState(true);
   const [counter, setCounter] = useState(0);
-  const [animals, setAnimals] = useState([
-    {
-      img: africanElephant,
-      name: 'slon africký',
-      area: 'AF',
-      text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši. Žijeme ve skupině, kterou vede nejzkušenejší slonice',
-      level: '1',
-      visible: true,
-    },
-    {
-      img: panda,
-      name: 'panda velká',
-      area: 'AS',
-      text: 'Moje zbarvení je nápadně černobílé a živím se převážně bambusovými výhonky',
-      level: '1',
-      visible: true,
-    },
-    {
-      img: kangaroo,
-      name: 'klokan velký',
-      area: 'OC',
-      text: 'Můj ocas je tak silný, že mi slouží jako opora těla.',
-      level: '1',
-      visible: true,
-    },
-    {
-      img: europeanBeaver,
-      name: 'bobr evropský',
-      area: 'EU',
-      text: 'Pomocí svých mohutných zubů buduji na řekách hráze.',
-      level: '1',
-      visible: true,
-    },
-    {
-      img: lamaAlpaca,
-      name: 'lama',
-      area: 'SA',
-      text: 'Říkají mi horský velbloud a mám velmi jemnou srst',
-      level: '1',
-      visible: true,
-    },
-    {
-      img: americanBison,
-      name: 'bizon americký',
-      area: 'NA',
-      text: 'Možná vypadám těžkopádně, ale dokážu běžet až rychlostí 50 km/h',
-      level: '1',
-      visible: true,
-    },
-  ]);
+  const [animals, setAnimals] = useState([]);
+  // const [animals, setAnimals] = useState([
+  //   {
+  //     img: africanElephant,
+  //     name: 'slon africký',
+  //     area: 'AF',
+  //     text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši. Žijeme ve skupině, kterou vede nejzkušenejší slonice',
+  //     level: '1',
+  //     visible: true,
+  //   },
+  //   {
+  //     img: panda,
+  //     name: 'panda velká',
+  //     area: 'AS',
+  //     text: 'Moje zbarvení je nápadně černobílé a živím se převážně bambusovými výhonky',
+  //     level: '1',
+  //     visible: true,
+  //   },
+  //   {
+  //     img: kangaroo,
+  //     name: 'klokan velký',
+  //     area: 'OC',
+  //     text: 'Můj ocas je tak silný, že mi slouží jako opora těla.',
+  //     level: '1',
+  //     visible: true,
+  //   },
+  //   {
+  //     img: europeanBeaver,
+  //     name: 'bobr evropský',
+  //     area: 'EU',
+  //     text: 'Pomocí svých mohutných zubů buduji na řekách hráze.',
+  //     level: '1',
+  //     visible: true,
+  //   },
+  //   {
+  //     img: lamaAlpaca,
+  //     name: 'lama',
+  //     area: 'SA',
+  //     text: 'Říkají mi horský velbloud a mám velmi jemnou srst',
+  //     level: '1',
+  //     visible: true,
+  //   },
+  //   {
+  //     img: americanBison,
+  //     name: 'bizon americký',
+  //     area: 'NA',
+  //     text: 'Možná vypadám těžkopádně, ale dokážu běžet až rychlostí 50 km/h',
+  //     level: '1',
+  //     visible: true,
+  //   },
+  // ]);
   const [availableAnimals, setAvailableAnimals] = useState(animals);
   const [chosenAnimals, setChosenAnimals] = useState([]);
   const [moveToResult, setMoveToResult] = useState(true);
@@ -104,13 +107,10 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
     var currentIndex = array.length,
       randomIndex;
 
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-      // Pick a remaining element...
       randomIndex = Math.ceil(Math.random() * currentIndex);
       currentIndex--;
 
-      // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex],
         array[currentIndex],
@@ -120,7 +120,19 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
     return array;
   };
 
+  //               -----------------------databáze
   useEffect(() => {
+    db.collection('animals').onSnapshot((snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        console.log(doc.data());
+      });
+      setState(
+        snapshot.docs.map((doc) => {
+          return doc.data();
+        }),
+      );
+    });
+
     const newArray = shuffle(animals).slice(0, 3);
     setChosenAnimals(newArray);
     setIndex(round(animals.length));
