@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import img from './img/tabule.svg';
+import img from './img/resultsBg.svg';
 
 export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
   const [backToGame, setBackToGame] = useState(false);
@@ -16,23 +16,28 @@ export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
   return (
     <>
       <div className="signboard">
-        <h1>Děkujeme!</h1>
-        {/* <img className="signboard--img" src={img}></img> */}
-        <p> Zachránce:{name}</p>
-        <p>
-          {' '}
-          {numberOfAnimals} zvířátka jsou doma na {counter} pokusů
-        </p>
+        <div className="signboard--bg">
+          <img className="signboard--img" src={img}></img>
+          <div className="signboard--content">
+            <h1 className="signboard--title">Děkujeme!</h1>
+            <p> Zachránce:{name}</p>
+            <p>
+              {' '}
+              {numberOfAnimals} zvířátka jsou doma na {counter} pokusů
+            </p>
 
-        <button
-          onClick={() => {
-            // setBackToGame(true);
-            // onBackToGame(backToGame);
-            handle();
-          }}
-        >
-          Hrát znovu
-        </button>
+            <button
+              className="signboard--btn"
+              onClick={() => {
+                // setBackToGame(true);
+                // onBackToGame(backToGame);
+                handle();
+              }}
+            >
+              Hrát znovu
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

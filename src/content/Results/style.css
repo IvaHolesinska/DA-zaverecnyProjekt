@@ -1,17 +1,67 @@
 .signboard {
   display: flex;
-  flex-wrap: wrap;
-  background-image: url(img/tabule.svg);
-  background-repeat: no-repeat;
-  background-position-x: center;
-  width: 100vw;
+  flex-direction: row;
   margin: 0 auto;
-  height: 80vh;
   align-items: center;
-  padding: 50px;
+  justify-content: center;
 }
 
-/* .signboard--img {
-  width: 600px;
-  margin: 0 auto;
-} */
+.signboard--bg {
+  position: relative;
+}
+
+.signboard--content {
+  color: black;
+  position: absolute;
+  top: 15%;
+  left: 45%;
+}
+
+@media screen {
+  .signboard {
+    height: 100vw;
+    padding: 0px;
+  }
+  .signboard--bg {
+    width: 100%;
+  }
+  .signboard--title {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .signboard--content p {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .signboard {
+    height: 90vh;
+    padding: 20px;
+  }
+  .signboard--bg {
+    width: 90%;
+  }
+  .signboard--title {
+    font-size: 1.5rem;
+  }
+  .signboard--content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .signboard {
+    height: 80vh;
+    padding: 40px;
+  }
+  .signboard--bg {
+    width: 60%;
+  }
+  .signboard--title {
+    font-size: 2rem;
+  }
+  .signboard--content p {
+    font-size: 1rem;
+  }
+}
