@@ -1,6 +1,5 @@
 .modal--container {
   margin: 70px auto;
-  background-color: hsla(194, 58%, 77%, 0.719);
   color: black;
   font-weight: bold;
   width: 90vw;
@@ -21,4 +20,13 @@
   position: absolute;
   top: 3px;
   right: 3px;
+  border: 1px solid black;
+}
+
+.modal--container__true {
+  background-color: hsla(194, 58%, 77%, 0.719);
+}
+
+.modal--container__false {
+  background-color: hsla(4, 61%, 73%, 0.719);
 }

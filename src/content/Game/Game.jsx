@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Map } from '../Map/Map.jsx';
 import { Animal } from '../Animal/Animal';
 import { Modal } from '../Modal/Modal.jsx';
-import africanElephant from '../Animal/Gallery/Africa/africanElephant.svg';
-import panda from '../Animal//Gallery/Asia/panda.svg';
-import kangaroo from '../Animal//Gallery/Australia/kangaroo.svg';
-import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
-import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
-import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
+// import africanElephant from '../Animal/Gallery/Africa/africanElephant.svg';
+// import panda from '../Animal//Gallery/Asia/panda.svg';
+// import kangaroo from '../Animal//Gallery/Australia/kangaroo.svg';
+// import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
+// import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
+// import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
 
 import { db } from '../../db';
 
@@ -28,7 +28,7 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   //     img: africanElephant,
   //     name: 'slon africký',
   //     area: 'AF',
-  //     text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši. Žijeme ve skupině, kterou vede nejzkušenejší slonice',
+  //     text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši.',
   //     level: '1',
   //     visible: true,
   //   },
@@ -122,21 +122,41 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
 
   //               -----------------------databáze
   useEffect(() => {
-    db.collection('animals').onSnapshot((snapshot) => {
-      snapshot.docs.forEach((doc) => {
-        console.log(doc.data());
-      });
-      setState(
-        snapshot.docs.map((doc) => {
-          return doc.data();
-        }),
-      );
-    });
+    // db.collection('animals').onSnapshot((snapshot) => {
+    //   setAnimals(
+    //     snapshot.docs.map((doc) => {
+    //       return doc.data();
+    //     }),
+    //   );
+    // });
 
-    const newArray = shuffle(animals).slice(0, 3);
-    setChosenAnimals(newArray);
-    setIndex(round(animals.length));
+    const array = [];
+
+    db.collection('animals')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          array.push(doc.data());
+        });
+      });
+    setAnimals(array);
+
+    // const newArray = shuffle(animals).slice(0, 3);
+    // console.log(newArray);
+    // setChosenAnimals(newArray);
+    // console.log(chosenAnimals);
+    // setIndex(round(animals.length));
   }, []);
+
+  useEffect(() => {
+    if (animals.length > 0) {
+      const newArray = shuffle(animals).slice(0, 3);
+      console.log(newArray);
+      setChosenAnimals(newArray);
+      console.log(chosenAnimals);
+      setIndex(round(animals.length));
+    }
+  });
 
   const [playSuccess] = useSound(success);
   const [playFail] = useSound(fail);
@@ -147,6 +167,7 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
         move === animals[index].area ? playSuccess() : playFail();
       setCloseModal(false);
     }
+    setAvailableAnimals(animals);
   }, [counter]);
 
   const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -154,6 +175,7 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   useEffect(() => {
     if (result === true) {
       availableAnimals[index].visible = false;
+      console.log(chosenAnimals);
       setAvailableAnimals(
         chosenAnimals.filter((animal) => animal.visible === true),
       );
@@ -170,7 +192,7 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
       <Map onMove={handleMove} reloadMap={reloadMap} />
       {index === null ? (
         'načítám'
-      ) : (
+      ) : animals.length === 0 ? undefined : (
         <Animal
           key={animals[index].name}
           img={animals[index].img}
@@ -178,11 +200,16 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
         />
       )}{' '}
       {result === null || closeModal ? undefined : result ? (
-        <Modal onCloseModal={handleClick} text={animals[index].text} />
+        <Modal
+          onCloseModal={handleClick}
+          text={animals[index].text}
+          modal=" modal--container__true"
+        />
       ) : (
         <Modal
           onCloseModal={handleClick}
           text="Bohužel. Tady můj domov není."
+          modal=" modal--container__false"
         />
       )}
     </>
