@@ -11,3 +11,24 @@ html {
   min-height: 100vh;
   min-width: 100%;
 }
+
+.buttonClass {
+  font-size: 0.9rem;
+  font-family: Arial;
+  width: 100px;
+  height: 30px;
+  border-width: 1px;
+  color: white;
+  border-color: rgb(177, 190, 208);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px rgba(170, 199, 216, 1);
+  text-shadow: inset 0px 1px 0px rgb(206, 213, 221);
+  background: linear-gradient(rgb(27, 69, 124), rgb(37, 110, 165));
+}
+
+.buttonClass:hover {
+  background: linear-gradient(rgb(37, 110, 165), rgb(27, 69, 124));
+}

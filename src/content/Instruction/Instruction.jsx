@@ -29,10 +29,14 @@ export const Instruction = ({ onPlayerName }) => {
               />{' '}
             </label>
             {name === '' ? (
-              <button type="submit">Pokračovat</button>
+              <button className="buttonClass" type="submit">
+                Pokračovat
+              </button>
             ) : (
               <Link to="/hra">
-                <button type="submit">Pokračovat</button>
+                <button className="buttonClass" type="submit">
+                  Pokračovat
+                </button>
               </Link>
             )}
           </form>

@@ -26,7 +26,7 @@ export const Introduction = () => {
           </p>
           <div className="intro--bt">
             <Link to="/instrukce">
-              <button className="intro--btn">Pokračovat</button>
+              <button className="buttonClass">Pokračovat</button>
             </Link>
           </div>
         </div>

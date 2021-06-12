@@ -20,7 +20,7 @@ export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
             </p>
             <Link to="/hra">
               <button
-                className="signboard--btn"
+                className="buttonClass"
                 onClick={() => {
                   setBackToGame(true);
                   onBackToGame(backToGame);

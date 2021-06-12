@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Map } from '../Map/Map.jsx';
 import { Animal } from '../Animal/Animal';
 import { Modal } from '../Modal/Modal.jsx';
-// import africanElephant from '../Animal/Gallery/Africa/africanElephant.svg';
-// import panda from '../Animal//Gallery/Asia/panda.svg';
-// import kangaroo from '../Animal//Gallery/Australia/kangaroo.svg';
-// import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
-// import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
-// import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
+import africanElephant from '../Animal/Gallery/Africa/africanElephant.svg';
+import panda from '../Animal//Gallery/Asia/panda.svg';
+import kangaroo from '../Animal//Gallery/Australia/kangaroo.svg';
+import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
+import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
+import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
 
-import { db } from '../../db';
+// import { db } from '../../db';
 
 import useSound from 'use-sound';
 import success from '../../audio/success.mp3';
@@ -22,57 +22,57 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   const [closeModal, setCloseModal] = useState(null);
   const [reloadMap, setReloadMap] = useState(true);
   const [counter, setCounter] = useState(0);
-  const [animals, setAnimals] = useState([]);
-  // const [animals, setAnimals] = useState([
-  //   {
-  //     img: africanElephant,
-  //     name: 'slon africký',
-  //     area: 'AF',
-  //     text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši.',
-  //     level: '1',
-  //     visible: true,
-  //   },
-  //   {
-  //     img: panda,
-  //     name: 'panda velká',
-  //     area: 'AS',
-  //     text: 'Moje zbarvení je nápadně černobílé a živím se převážně bambusovými výhonky',
-  //     level: '1',
-  //     visible: true,
-  //   },
-  //   {
-  //     img: kangaroo,
-  //     name: 'klokan velký',
-  //     area: 'OC',
-  //     text: 'Můj ocas je tak silný, že mi slouží jako opora těla.',
-  //     level: '1',
-  //     visible: true,
-  //   },
-  //   {
-  //     img: europeanBeaver,
-  //     name: 'bobr evropský',
-  //     area: 'EU',
-  //     text: 'Pomocí svých mohutných zubů buduji na řekách hráze.',
-  //     level: '1',
-  //     visible: true,
-  //   },
-  //   {
-  //     img: lamaAlpaca,
-  //     name: 'lama',
-  //     area: 'SA',
-  //     text: 'Říkají mi horský velbloud a mám velmi jemnou srst',
-  //     level: '1',
-  //     visible: true,
-  //   },
-  //   {
-  //     img: americanBison,
-  //     name: 'bizon americký',
-  //     area: 'NA',
-  //     text: 'Možná vypadám těžkopádně, ale dokážu běžet až rychlostí 50 km/h',
-  //     level: '1',
-  //     visible: true,
-  //   },
-  // ]);
+  // const [animals, setAnimals] = useState([]);
+  const [animals, setAnimals] = useState([
+    {
+      img: africanElephant,
+      name: 'slon africký',
+      area: 'AF',
+      text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši.',
+      level: '1',
+      visible: true,
+    },
+    {
+      img: panda,
+      name: 'panda velká',
+      area: 'AS',
+      text: 'Moje zbarvení je nápadně černobílé a živím se převážně bambusovými výhonky',
+      level: '1',
+      visible: true,
+    },
+    {
+      img: kangaroo,
+      name: 'klokan velký',
+      area: 'OC',
+      text: 'Můj ocas je tak silný, že mi slouží jako opora těla.',
+      level: '1',
+      visible: true,
+    },
+    {
+      img: europeanBeaver,
+      name: 'bobr evropský',
+      area: 'EU',
+      text: 'Pomocí svých mohutných zubů buduji na řekách hráze.',
+      level: '1',
+      visible: true,
+    },
+    {
+      img: lamaAlpaca,
+      name: 'lama',
+      area: 'SA',
+      text: 'Říkají mi horský velbloud a mám velmi jemnou srst',
+      level: '1',
+      visible: true,
+    },
+    {
+      img: americanBison,
+      name: 'bizon americký',
+      area: 'NA',
+      text: 'Možná vypadám těžkopádně, ale dokážu běžet až rychlostí 50 km/h',
+      level: '1',
+      visible: true,
+    },
+  ]);
   const [availableAnimals, setAvailableAnimals] = useState(animals);
   const [chosenAnimals, setChosenAnimals] = useState([]);
   const [moveToResult, setMoveToResult] = useState(true);
@@ -123,6 +123,9 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   //               -----------------------databáze
   useEffect(() => {
     // db.collection('animals').onSnapshot((snapshot) => {
+    //   snapshot.docs.forEach((doc) => {
+    //     console.log(doc.data());
+    //   });
     //   setAnimals(
     //     snapshot.docs.map((doc) => {
     //       return doc.data();
@@ -130,33 +133,10 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
     //   );
     // });
 
-    const array = [];
-
-    db.collection('animals')
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          array.push(doc.data());
-        });
-      });
-    setAnimals(array);
-
-    // const newArray = shuffle(animals).slice(0, 3);
-    // console.log(newArray);
-    // setChosenAnimals(newArray);
-    // console.log(chosenAnimals);
-    // setIndex(round(animals.length));
+    const newArray = shuffle(animals).slice(0, 3);
+    setChosenAnimals(newArray);
+    setIndex(round(animals.length));
   }, []);
-
-  useEffect(() => {
-    if (animals.length > 0) {
-      const newArray = shuffle(animals).slice(0, 3);
-      console.log(newArray);
-      setChosenAnimals(newArray);
-      console.log(chosenAnimals);
-      setIndex(round(animals.length));
-    }
-  });
 
   const [playSuccess] = useSound(success);
   const [playFail] = useSound(fail);
@@ -167,7 +147,6 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
         move === animals[index].area ? playSuccess() : playFail();
       setCloseModal(false);
     }
-    setAvailableAnimals(animals);
   }, [counter]);
 
   const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -175,7 +154,6 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   useEffect(() => {
     if (result === true) {
       availableAnimals[index].visible = false;
-      console.log(chosenAnimals);
       setAvailableAnimals(
         chosenAnimals.filter((animal) => animal.visible === true),
       );
@@ -192,7 +170,7 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
       <Map onMove={handleMove} reloadMap={reloadMap} />
       {index === null ? (
         'načítám'
-      ) : animals.length === 0 ? undefined : (
+      ) : (
         <Animal
           key={animals[index].name}
           img={animals[index].img}

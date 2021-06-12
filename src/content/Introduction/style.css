@@ -1,27 +1,16 @@
 .container {
   margin: 0 auto;
-  /* width: 530px; */
 }
 
 .intro {
   display: flex;
   flex-wrap: wrap;
-
-  /* width: 480px; */
 }
 
 .intro--text {
   background-color: hsla(231, 40%, 35%, 0.344);
   border-radius: 5px;
   text-align: center;
-
-  /* width: 90%; */
-}
-.intro--btn {
-  padding: 5px;
-  border-radius: 5px;
-  color: black;
-  background-color: hsla(0, 7%, 97%, 0.679);
 }
 
 .intro--bt {
