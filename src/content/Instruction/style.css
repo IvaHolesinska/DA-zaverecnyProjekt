@@ -23,10 +23,16 @@
   padding: 7px;
   margin-top: 80px;
 }
+.input input {
+  width: 120px;
+}
 
 @media screen {
   .instruction__list {
     width: 90%;
+  }
+  .buttonClass {
+    margin: 2% 0 0 30%;
   }
 }
 
