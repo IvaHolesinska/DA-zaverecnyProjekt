@@ -2,20 +2,20 @@ import React from 'react';
 import './style.css';
 
 const drag = (ev) => {
-  console.log(ev.target);
+  return ev.target;
 };
 
 export const Animal = ({ img, name }) => {
   return (
     <>
-      <div className="animal--gallery">
+      <div className="animal__gallery">
         <img
-          className="animal--img"
+          className="animal__img"
           src={img}
           draggable={true}
           onDragStart={(event) => drag(event)}
         />
-        <p className="animal--name">{name}</p>
+        <p className="animal__name">{name}</p>
       </div>
     </>
   );

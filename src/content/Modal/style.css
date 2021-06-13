@@ -1,4 +1,4 @@
-.modal--container {
+.modal__container {
   margin: 70px auto;
   color: black;
   font-weight: bold;
@@ -16,7 +16,11 @@
   bottom: 5px;
 }
 
-.modal--btn {
+.modal__text {
+  padding: 0 15px;
+}
+
+.modal__btn {
   position: absolute;
   top: 3px;
   right: 3px;
@@ -36,14 +40,14 @@
   background: linear-gradient(rgba(239, 245, 246, 1), rgba(192, 199, 201, 1));
 }
 
-.modal--btn:hover {
+.modal__btn:hover {
   background: linear-gradient(rgba(192, 199, 201, 1), rgba(239, 245, 246, 1));
 }
 
-.modal--container__true {
+.modal__container--true {
   background-color: hsla(194, 58%, 77%, 0.719);
 }
 
-.modal--container__false {
+.modal__container--false {
   background-color: hsla(4, 61%, 73%, 0.719);
 }

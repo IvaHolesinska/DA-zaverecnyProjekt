@@ -1,48 +1,43 @@
-.container {
-  margin: 0 auto;
-}
-
 .intro {
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
 
-.intro--text {
+.intro__text {
   background-color: hsla(231, 40%, 35%, 0.344);
-  border-radius: 5px;
+  border-radius: 20px;
   text-align: center;
 }
 
-.intro--bt {
+.intro__btn {
   display: flex;
-  align-items: center;
   margin: 10px auto;
 }
 
 @media screen {
-  .container {
+  .intro {
     width: 90%;
   }
-  .intro--text {
+  .intro__text {
     padding: 2px 8px;
     margin: 0;
   }
 }
 
-@media screen and (min-width: 500px) {
-  .container {
+@media screen and (min-width: 576px) {
+  .intro {
     padding-top: 10px;
     width: 450px;
   }
-  .intro--text {
-    padding: 6px 8px;
-    padding-bottom: 15px;
+  .intro__text {
+    padding: 6px 8px 15px 8px;
     margin: 15px;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .container {
+  .intro {
     width: 550px;
   }
 }

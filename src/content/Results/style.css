@@ -1,20 +1,18 @@
 .signboard {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
   align-items: center;
   justify-content: center;
 }
 
-.signboard--bg {
+.signboard__bg {
   position: relative;
 }
 
-.signboard--content {
+.signboard__content {
   color: black;
   position: absolute;
   top: 15%;
-  left: 45%;
+  left: 43%;
 }
 
 @media screen {
@@ -22,14 +20,14 @@
     height: 100vw;
     padding: 0px;
   }
-  .signboard--bg {
+  .signboard__bg {
     width: 100%;
   }
-  .signboard--title {
+  .signboard__title {
     font-size: 1rem;
     margin: 0;
   }
-  .signboard--content p {
+  .signboard__content p {
     font-size: 0.7rem;
   }
 }
@@ -39,29 +37,32 @@
     height: 90vh;
     padding: 20px;
   }
-  .signboard--bg {
+  .signboard__bg {
     width: 90%;
   }
-  .signboard--title {
+  .signboard__title {
     font-size: 1.5rem;
   }
-  .signboard--content p {
+  .signboard__content {
+    left: 45%;
+  }
+  .signboard__content p {
     font-size: 1.2rem;
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 992px) {
   .signboard {
     height: 80vh;
     padding: 40px;
   }
-  .signboard--bg {
+  .signboard__bg {
     width: 60%;
   }
-  .signboard--title {
+  .signboard__title {
     font-size: 2rem;
   }
-  .signboard--content p {
+  .signboard__content p {
     font-size: 1rem;
   }
 }

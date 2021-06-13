@@ -12,7 +12,7 @@
   fill: #bbb934;
 }
 
-.map-container {
+.map__container {
   display: flex;
   align-items: center;
   justify-content: center;

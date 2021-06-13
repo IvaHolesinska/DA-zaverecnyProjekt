@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './style.css';
 
 export const Modal = ({ text, onCloseModal, modal }) => {
   return (
     <>
-      <div className={`modal--container${modal}`}>
-        <div className="modal--text">{text}</div>
+      <div className={`modal__container${modal}`}>
+        <div className="modal__text">{text}</div>
         <button
-          className="modal--btn"
+          className="modal__btn"
           onClick={() => {
             onCloseModal();
           }}

@@ -3,49 +3,33 @@ header {
   justify-content: center;
 }
 
-.logo {
+.header__logo {
   position: absolute;
   top: 20px;
   left: 25px;
   width: 4rem;
   height: 4rem;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
-.title {
-  color: white;
+.header__title {
   text-shadow: 2px 2px 4px #000000;
   padding-left: 50px;
+  padding-bottom: 5px;
 }
 
 @media screen and (min-width: 576px) {
-  .logo {
+  .header__logo {
     width: 4rem;
     height: 4rem;
   }
-  .title {
+  .header__title {
     padding-left: 0px;
-    margin-left: 0px;
-    padding-bottom: 0px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .logo {
+  .header__logo {
     width: 7rem;
     height: 7rem;
-  }
-}
-
-@media screen and (min-height: 500px) {
-  .title {
-    /* padding-bottom: 20px; */
-  }
-}
-
-@media screen and (min-height: 650px) {
-  .title {
-    /* padding-bottom: 50px; */
   }
 }

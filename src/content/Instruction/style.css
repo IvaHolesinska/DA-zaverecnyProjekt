@@ -1,56 +1,50 @@
-.instruction--list {
+.instruction__list {
   width: 90%;
-  height: 100%;
   margin: 30px auto;
   background-color: hsla(231, 40%, 35%, 0.344);
   border-radius: 20px;
   padding: 5px 5px;
-  font-size: 0.9rem;
 }
 
-.instruction--list h2 {
+.instruction__list h2 {
   text-align: center;
   text-decoration: underline;
   padding-bottom: 20px;
 }
 
-.instruction--list li {
+.instruction__list li {
   font-size: 1rem;
   padding-bottom: 15px;
 }
 
-.form--input {
+.form__input {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
   padding: 7px;
   margin-top: 80px;
 }
 
 @media screen {
-  .instruction--list {
+  .instruction__list {
     width: 90%;
-  }
-  .form--input {
-    padding-left: 20px;
   }
 }
 
 @media screen and (min-width: 576px) {
-  .instruction--list {
+  .instruction__list {
     width: 470px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .instruction--list {
+  .instruction__list {
     width: 500px;
     margin-top: 20px;
   }
-  .instruction--list li {
+  .instruction__list li {
     padding-bottom: 30px;
   }
-  .form--input {
+  .form__input {
     padding: 15px;
   }
 }

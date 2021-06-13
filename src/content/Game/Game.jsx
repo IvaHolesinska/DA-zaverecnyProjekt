@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Map } from '../Map/Map.jsx';
 import { Animal } from '../Animal/Animal';
 import { Modal } from '../Modal/Modal.jsx';
-import africanElephant from '../Animal/Gallery/Africa/africanElephant.svg';
+import zebra from '../Animal/Gallery/Africa/zebra.svg';
 import panda from '../Animal//Gallery/Asia/panda.svg';
 import kangaroo from '../Animal//Gallery/Australia/kangaroo.svg';
 import europeanBeaver from '../Animal//Gallery/Europe/europeanBeaver.svg';
 import lamaAlpaca from '../Animal//Gallery/SouthAmerica/lamaAlpaca.svg';
 import americanBison from '../Animal//Gallery/NorthAmerica/americanBison.svg';
-
-// import { db } from '../../db';
 
 import useSound from 'use-sound';
 import success from '../../audio/success.mp3';
@@ -22,14 +20,12 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
   const [closeModal, setCloseModal] = useState(null);
   const [reloadMap, setReloadMap] = useState(true);
   const [counter, setCounter] = useState(0);
-  // const [animals, setAnimals] = useState([]);
   const [animals, setAnimals] = useState([
     {
-      img: africanElephant,
-      name: 'slon africký',
+      img: zebra,
+      name: 'zebra stepní',
       area: 'AF',
-      text: 'Na rozdíl od svého indického příbuzného mám mnohem větší uši.',
-      level: '1',
+      text: 'Jsem známá svým pruhováním, kterým se odlišuji od svých příbuzných.',
       visible: true,
     },
     {
@@ -37,7 +33,6 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
       name: 'panda velká',
       area: 'AS',
       text: 'Moje zbarvení je nápadně černobílé a živím se převážně bambusovými výhonky',
-      level: '1',
       visible: true,
     },
     {
@@ -45,7 +40,6 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
       name: 'klokan velký',
       area: 'OC',
       text: 'Můj ocas je tak silný, že mi slouží jako opora těla.',
-      level: '1',
       visible: true,
     },
     {
@@ -53,23 +47,20 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
       name: 'bobr evropský',
       area: 'EU',
       text: 'Pomocí svých mohutných zubů buduji na řekách hráze.',
-      level: '1',
       visible: true,
     },
     {
       img: lamaAlpaca,
-      name: 'lama',
+      name: 'lama alpaka',
       area: 'SA',
       text: 'Říkají mi horský velbloud a mám velmi jemnou srst',
-      level: '1',
       visible: true,
     },
     {
       img: americanBison,
       name: 'bizon americký',
       area: 'NA',
-      text: 'Možná vypadám těžkopádně, ale dokážu běžet až rychlostí 50 km/h',
-      level: '1',
+      text: 'Možná vypadám těžkopádně, ale dokážu běžet rychlostí až 50 km/h',
       visible: true,
     },
   ]);
@@ -91,7 +82,6 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
     setResult(false);
 
     if (availableAnimals.length === 0) {
-      // onMoveToResult(availableAnimals);
       onMoveToResult(moveToResult);
       onCounter(counter);
     }
@@ -116,23 +106,10 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
         array[currentIndex],
       ];
     }
-
     return array;
   };
 
-  //               -----------------------databáze
   useEffect(() => {
-    // db.collection('animals').onSnapshot((snapshot) => {
-    //   snapshot.docs.forEach((doc) => {
-    //     console.log(doc.data());
-    //   });
-    //   setAnimals(
-    //     snapshot.docs.map((doc) => {
-    //       return doc.data();
-    //     }),
-    //   );
-    // });
-
     const newArray = shuffle(animals).slice(0, 3);
     setChosenAnimals(newArray);
     setIndex(round(animals.length));
@@ -181,13 +158,13 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
         <Modal
           onCloseModal={handleClick}
           text={animals[index].text}
-          modal=" modal--container__true"
+          modal=" modal__container--true"
         />
       ) : (
         <Modal
           onCloseModal={handleClick}
-          text="Bohužel. Tady můj domov není."
-          modal=" modal--container__false"
+          text="Bohužel. Tady není můj domov."
+          modal=" modal__container--false"
         />
       )}
     </>

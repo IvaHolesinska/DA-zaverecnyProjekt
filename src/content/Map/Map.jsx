@@ -10,14 +10,13 @@ export const Map = ({ onMove, reloadMap }) => {
 
   const drop = (ev) => {
     ev.preventDefault();
-    // console.log(ev.target.parentElement.id);
     onSelect(ev.target.parentElement.id);
     onMove(ev.target.parentElement.id, false);
   };
 
   return (
     <>
-      <div className="map-container">
+      <div className="map__container">
         <svg
           className="map-img"
           xmlns="http://www.w3.org/2000/svg"

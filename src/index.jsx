@@ -5,16 +5,15 @@ import {
   Switch,
   Route,
   Redirect,
-  Link,
 } from 'react-router-dom';
 import { Introduction } from './content/Introduction/Introduction';
 import { Instruction } from './content/Instruction/Instruction';
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
 import { Game } from './content/Game/Game.jsx';
+import { Results } from './content/Results/Results';
 
 import './style.css';
-import { Results } from './content/Results/Results';
 
 const App = () => {
   const [moveToResult, setMoveToResult] = useState(false);

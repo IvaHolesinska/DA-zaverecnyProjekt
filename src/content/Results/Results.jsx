@@ -9,14 +9,18 @@ export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
   return (
     <>
       <div className="signboard">
-        <div className="signboard--bg">
-          <img className="signboard--img" src={img}></img>
-          <div className="signboard--content">
-            <h1 className="signboard--title">Děkujeme!</h1>
-            <p> Zachránce: {name}</p>
+        <div className="signboard__bg">
+          <img className="signboard__img" src={img}></img>
+          <div className="signboard__content">
+            <h1 className="signboard__title">Děkujeme!</h1>
             <p>
               {' '}
-              {numberOfAnimals} zvířátka jsou doma na {counter} pokusů
+              Zachránce: <span style={{ fontWeight: 'bold' }}> {name}</span>
+            </p>
+            <p>
+              {' '}
+              {numberOfAnimals} zvířátka jsou doma na{' '}
+              <span style={{ fontWeight: 'bold' }}> {counter} </span> pokusů
             </p>
             <Link to="/hra">
               <button
