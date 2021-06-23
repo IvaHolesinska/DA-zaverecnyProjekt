@@ -158,13 +158,13 @@ export const Game = ({ onMoveToResult, onCounter, onNumberOfAnimals }) => {
         <Modal
           onCloseModal={handleClick}
           text={animals[index].text}
-          modal=" modal__container--true"
+          modal=" modal-container--true"
         />
       ) : (
         <Modal
           onCloseModal={handleClick}
           text="Bohužel. Tady není můj domov."
-          modal=" modal__container--false"
+          modal=" modal-container--false"
         />
       )}
     </>

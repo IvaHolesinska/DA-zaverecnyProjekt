@@ -7,16 +7,15 @@ export const Instruction = ({ onPlayerName }) => {
 
   return (
     <>
-      <div className="instruction__list">
+      <div className="instruction-list">
         <h2>Instrukce</h2>
         <ul>
           <li>Podívej se na zvíře</li>
           <li>Prohlédni si mapu a rozmysli si, kde je jeho pravý domov</li>
           <li>Klikni na zvíře a umísti jej na správný kontinent</li>
         </ul>
-        <div className="form__input">
+        <div className="instruction-list__input">
           <form
-            className="form"
             onClick={() => {
               onPlayerName(name);
             }}
@@ -29,12 +28,12 @@ export const Instruction = ({ onPlayerName }) => {
               />{' '}
             </label>
             {name === '' ? (
-              <button className="buttonClass" type="submit">
+              <button className="instruction-list__btn" type="submit">
                 Pokračovat
               </button>
             ) : (
               <Link to="/hra">
-                <button className="buttonClass" type="submit">
+                <button className="instruction-list__btn" type="submit">
                   Pokračovat
                 </button>
               </Link>

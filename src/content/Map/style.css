@@ -1,13 +1,13 @@
-.map-selected {
+.map__container--selected {
   fill: #bbb934;
 }
 
-.map-unselected {
+.map__container--unselected {
   fill: #aa9069;
 }
 
-.map-selected:hover,
-.map-unselected:hover {
+.map__container--selected:hover,
+.map__container--unselected:hover {
   cursor: pointer;
   fill: #bbb934;
 }

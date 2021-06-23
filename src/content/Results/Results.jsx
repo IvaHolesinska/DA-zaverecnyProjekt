@@ -9,10 +9,10 @@ export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
   return (
     <>
       <div className="signboard">
-        <div className="signboard__bg">
-          <img className="signboard__img" src={img}></img>
-          <div className="signboard__content">
-            <h1 className="signboard__title">Děkujeme!</h1>
+        <div className="signboard-bg">
+          <img className="signboard-bg__img" src={img}></img>
+          <div className="signboard-content">
+            <h1 className="signboard-content__title">Děkujeme!</h1>
             <p>
               {' '}
               Zachránce: <span style={{ fontWeight: 'bold' }}> {name}</span>
@@ -24,7 +24,7 @@ export const Results = ({ name, counter, numberOfAnimals, onBackToGame }) => {
             </p>
             <Link to="/hra">
               <button
-                className="buttonClass"
+                className="signboard-content__btn"
                 onClick={() => {
                   setBackToGame(true);
                   onBackToGame(backToGame);

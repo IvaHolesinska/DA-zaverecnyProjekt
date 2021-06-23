@@ -4,10 +4,10 @@ import './style.css';
 export const Modal = ({ text, onCloseModal, modal }) => {
   return (
     <>
-      <div className={`modal__container${modal}`}>
-        <div className="modal__text">{text}</div>
+      <div className={`modal-container${modal}`}>
+        <div className="modal-container__text">{text}</div>
         <button
-          className="modal__btn"
+          className="modal-container__btn"
           onClick={() => {
             onCloseModal();
           }}

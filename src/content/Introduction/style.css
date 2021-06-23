@@ -1,43 +1,43 @@
-.intro {
+.introduction-list {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
 
-.intro__text {
+.introduction-list__text {
   background-color: hsla(231, 40%, 35%, 0.344);
   border-radius: 20px;
   text-align: center;
 }
 
-.intro__btn {
+.introduction-list-btn {
   display: flex;
   margin: 10px auto;
 }
 
 @media screen {
-  .intro {
+  .introduction-list {
     width: 90%;
   }
-  .intro__text {
+  .introduction-list__text {
     padding: 2px 8px;
     margin: 0;
   }
 }
 
 @media screen and (min-width: 576px) {
-  .intro {
+  .introduction-list {
     padding-top: 10px;
     width: 450px;
   }
-  .intro__text {
+  .introduction-list__text {
     padding: 6px 8px 15px 8px;
     margin: 15px;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .intro {
+  .introduction-list {
     width: 550px;
   }
 }

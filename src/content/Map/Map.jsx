@@ -37,8 +37,8 @@ export const Map = ({ onMove, reloadMap }) => {
             id="AF"
             className={
               selected === 'AF' && !reloadMap
-                ? 'map-selected'
-                : 'map-unselected'
+                ? 'map__container--selected'
+                : 'map__container--unselected'
             }
             onClick={() => {
               onSelect('AF');
@@ -60,8 +60,8 @@ export const Map = ({ onMove, reloadMap }) => {
             id="SA"
             className={
               selected === 'SA' && !reloadMap
-                ? 'map-selected'
-                : 'map-unselected'
+                ? 'map__container--selected'
+                : 'map__container--unselected'
             }
             onClick={() => {
               onSelect('SA');
@@ -87,8 +87,8 @@ export const Map = ({ onMove, reloadMap }) => {
             id="EU"
             className={
               selected === 'EU' && !reloadMap
-                ? 'map-selected'
-                : 'map-unselected'
+                ? 'map__container--selected'
+                : 'map__container--unselected'
             }
             onClick={() => {
               onSelect('EU');
@@ -142,8 +142,8 @@ export const Map = ({ onMove, reloadMap }) => {
             id="AS"
             className={
               selected === 'AS' && !reloadMap
-                ? 'map-selected'
-                : 'map-unselected'
+                ? 'map__container--selected'
+                : 'map__container--unselected'
             }
             onClick={() => {
               onSelect('AS');
@@ -253,8 +253,8 @@ export const Map = ({ onMove, reloadMap }) => {
             id="NA"
             className={
               selected === 'NA' && !reloadMap
-                ? 'map-selected'
-                : 'map-unselected'
+                ? 'map__container--selected'
+                : 'map__container--unselected'
             }
             onClick={() => {
               onSelect('NA');
@@ -336,8 +336,8 @@ export const Map = ({ onMove, reloadMap }) => {
             id="OC"
             className={
               selected === 'OC' && !reloadMap
-                ? 'map-selected'
-                : 'map-unselected'
+                ? 'map__container--selected'
+                : 'map__container--unselected'
             }
             onClick={() => {
               onSelect('OC');

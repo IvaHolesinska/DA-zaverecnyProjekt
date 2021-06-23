@@ -4,11 +4,11 @@
   justify-content: center;
 }
 
-.signboard__bg {
+.signboard-bg {
   position: relative;
 }
 
-.signboard__content {
+.signboard-content {
   color: black;
   position: absolute;
   top: 15%;
@@ -18,16 +18,16 @@
 @media screen {
   .signboard {
     height: 100vw;
-    padding: 0px;
+    padding: 0;
   }
-  .signboard__bg {
+  .signboard-bg {
     width: 100%;
   }
-  .signboard__title {
+  .signboard-content__title {
     font-size: 1rem;
     margin: 0;
   }
-  .signboard__content p {
+  .signboard-content p {
     font-size: 0.7rem;
   }
 }
@@ -37,16 +37,16 @@
     height: 90vh;
     padding: 20px;
   }
-  .signboard__bg {
+  .signboard-bg {
     width: 90%;
   }
-  .signboard__title {
+  .signboard-content__title {
     font-size: 1.5rem;
   }
-  .signboard__content {
+  .signboard-content {
     left: 45%;
   }
-  .signboard__content p {
+  .signboard-content p {
     font-size: 1.2rem;
   }
 }
@@ -56,13 +56,13 @@
     height: 80vh;
     padding: 40px;
   }
-  .signboard__bg {
+  .signboard-bg {
     width: 60%;
   }
-  .signboard__title {
+  .signboard-content__title {
     font-size: 2rem;
   }
-  .signboard__content p {
+  .signboard-content p {
     font-size: 1rem;
   }
 }

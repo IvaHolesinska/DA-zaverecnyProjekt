@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 export const Introduction = () => {
   return (
     <>
-      <div className="intro">
-        <p className="intro__text">
+      <div className="introduction-list">
+        <p className="introduction-list__text">
           Ahoj cizinče, <br />
           jsme skupina zvířat, která žila po desítky, ba i stovky let na stejném
           území. Doma jsme už znali každý keř a kámen, a tak se nám zachtělo
@@ -23,9 +23,9 @@ export const Introduction = () => {
           cestu a náš kompas se rozbil. Jediný, kdo nám teď může pomoct, jsi ty.
           Ukážeš nám prosím cestu domů?
         </p>
-        <div className="intro__btn">
+        <div className="introduction-list-btn">
           <Link to="/instrukce">
-            <button className="buttonClass">Pokračovat</button>
+            <button className="introduction-list-btn__btn">Pokračovat</button>
           </Link>
         </div>
       </div>

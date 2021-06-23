@@ -1,4 +1,4 @@
-.instruction__list {
+.instruction-list {
   width: 90%;
   margin: 30px auto;
   background-color: hsla(231, 40%, 35%, 0.344);
@@ -6,18 +6,18 @@
   padding: 5px 5px;
 }
 
-.instruction__list h2 {
+.instruction-list h2 {
   text-align: center;
   text-decoration: underline;
   padding-bottom: 20px;
 }
 
-.instruction__list li {
+.instruction-list li {
   font-size: 1rem;
   padding-bottom: 15px;
 }
 
-.form__input {
+.instruction-list__input {
   display: flex;
   justify-content: flex-end;
   padding: 7px;
@@ -28,32 +28,32 @@
 }
 
 @media screen {
-  .instruction__list {
+  .instruction-list {
     width: 90%;
   }
-  .buttonClass {
+  .instruction-list__btn {
     margin: 2% 0 0 30%;
   }
 }
 
 @media screen and (min-width: 576px) {
-  .instruction__list {
+  .instruction-list {
     width: 470px;
   }
-  .buttonClass {
+  .instruction-list__btn {
     margin: 0;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .instruction__list {
+  .instruction-list {
     width: 500px;
     margin-top: 20px;
   }
-  .instruction__list li {
+  .instruction-list li {
     padding-bottom: 30px;
   }
-  .form__input {
+  .instruction-list__input {
     padding: 15px;
   }
 }

@@ -1,4 +1,4 @@
-.animal__gallery {
+.animal-gallery {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -6,21 +6,21 @@
   align-items: center;
 }
 
-.animal__img:hover {
+.animal-gallery__img:hover {
   cursor: pointer;
 }
 
 @media screen {
-  .animal__img {
+  .animal-gallery__img {
     width: 20%;
   }
 }
 
 @media screen and (min-width: 576px) {
-  .animal__img {
+  .animal-gallery__img {
     width: 25%;
   }
-  .animal__gallery {
+  .animal-gallery {
     padding-top: 30px;
   }
 }

@@ -8,14 +8,14 @@ const drag = (ev) => {
 export const Animal = ({ img, name }) => {
   return (
     <>
-      <div className="animal__gallery">
+      <div className="animal-gallery">
         <img
-          className="animal__img"
+          className="animal-gallery__img"
           src={img}
           draggable={true}
           onDragStart={(event) => drag(event)}
         />
-        <p className="animal__name">{name}</p>
+        <p className="animal-gallery__name">{name}</p>
       </div>
     </>
   );
